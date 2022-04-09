@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "909b481e-cd2b-4046-80da-5f6c753b4631",
+		"name": "PROJECT-REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credit",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeCredit\": {\r\n        \"id\": 1\r\n    },\r\n    \"customer\": {\r\n        \"id\": 1\r\n    },\r\n    \"amount\": 2500.34,\r\n    \"dues\": 12,\r\n    \"interests\": 600.13,\r\n    \"reason\": \"Para la compra de una consola de videojuego\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-local}}/credit",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UploadConstanciaCredit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idCredit",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/ambiente-desarrollo/Java/rest-avanzado/rest-avanzado-project/src/main/resources/excels/img1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host-local}}/file-credit",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"file-credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/credit",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/credit/1",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReportCreditRejected",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/credit/export-rejected",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit",
+								"export-rejected"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evaluar credito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCredit\" :\"1\",\r\n    \"status\" : \"REJECTED\",\r\n    \"descriptionEvaluation\": \"No tiene la linea de credito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host-local}}/credit/evaluacion",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit",
+								"evaluacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Constancia credito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/credit/constancia/1",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"credit",
+								"constancia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Type-Credit",
+			"item": [
+				{
+					"name": "UploadTypes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/ambiente-desarrollo/Java/rest-avanzado/rest-avanzado-project/src/main/resources/excels/tiposCreditos.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host-local}}/type-credit/upload",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"type-credit",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/type-credit",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"type-credit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindbyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/type-credit/1",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"type-credit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "UploadClientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/ambiente-desarrollo/Java/rest-avanzado/rest-avanzado-project/src/main/resources/excels/clientes.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host-local}}/customer/upload",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"customer",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/customer",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-local}}/customer/1",
+							"host": [
+								"{{host-local}}"
+							],
+							"path": [
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
