@@ -1,0 +1,140 @@
+--------------------------------------------------------
+-- Archivo creado  - lunes-abril-11-2022   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence CREDIT_SEQUENCE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "CREDIT_SEQUENCE"  MINVALUE 1 MAXVALUE 999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence CUSTOMER_SEQUENCE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "CUSTOMER_SEQUENCE"  MINVALUE 1 MAXVALUE 999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence FILECREDIT_SEQUENCE
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FILECREDIT_SEQUENCE"  MINVALUE 1 MAXVALUE 999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table CREDIT
+--------------------------------------------------------
+
+  CREATE TABLE "CREDIT" 
+   (	"ID" NUMBER, 
+	"TYPECREDIT_ID" NUMBER, 
+	"AMOUNT" NUMBER, 
+	"DUES" NUMBER, 
+	"INTERESTS" NUMBER, 
+	"REASON" VARCHAR2(300 BYTE), 
+	"CREATE_AT" DATE, 
+	"CUSTOMER_ID" NUMBER, 
+	"STATUS" VARCHAR2(50 BYTE), 
+	"DESCRIPTION_EVALUATION" VARCHAR2(400 BYTE)
+   );
+--------------------------------------------------------
+--  DDL for Table CUSTOMER
+--------------------------------------------------------
+
+  CREATE TABLE "CUSTOMER" 
+   (	"ID" NUMBER, 
+	"NAME" VARCHAR2(30 BYTE), 
+	"SURNAME" VARCHAR2(30 BYTE), 
+	"EMAIL" VARCHAR2(30 BYTE), 
+	"CREATE_AT" DATE
+   );
+--------------------------------------------------------
+--  DDL for Table FILE_CREDIT
+--------------------------------------------------------
+
+  CREATE TABLE "FILE_CREDIT" 
+   (	"ID" NUMBER, 
+	"ID_CREDIT" NUMBER, 
+	"NAME" VARCHAR2(300 BYTE), 
+	"CREATE_AT" DATE
+   );
+--------------------------------------------------------
+--  DDL for Table TYPE_CREDIT
+--------------------------------------------------------
+
+  CREATE TABLE "TYPE_CREDIT" 
+   (	"ID" NUMBER, 
+	"DESCRIPTION" VARCHAR2(30 BYTE)
+   );
+
+--------------------------------------------------------
+--  DDL for Index TYPE_CREDIT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TYPE_CREDIT_PK" ON "TYPE_CREDIT" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CUSTOMER_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CUSTOMER_PK" ON "CUSTOMER" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CREDIT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CREDIT_PK" ON "CREDIT" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index FILE_CREDIT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FILE_CREDIT_PK" ON "FILE_CREDIT" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table FILE_CREDIT
+--------------------------------------------------------
+
+  ALTER TABLE "FILE_CREDIT" ADD CONSTRAINT "FILE_CREDIT_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "FILE_CREDIT" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table TYPE_CREDIT
+--------------------------------------------------------
+
+  ALTER TABLE "TYPE_CREDIT" ADD CONSTRAINT "TYPE_CREDIT_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "TYPE_CREDIT" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CREDIT
+--------------------------------------------------------
+
+  ALTER TABLE "CREDIT" ADD CONSTRAINT "CREDIT_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "CREDIT" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CUSTOMER
+--------------------------------------------------------
+
+  ALTER TABLE "CUSTOMER" ADD CONSTRAINT "CUSTOMER_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "CUSTOMER" MODIFY ("ID" NOT NULL ENABLE);
